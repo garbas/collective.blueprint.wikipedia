@@ -1,0 +1,2 @@
+<h3>wikipedia example import</h3>
+<div tal:content="view/exampleimport" />

@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="collective.blueprint.wikipedia">
+
+    <include package="collective.transmogrifier" file="meta.zcml"/>
+    <include package="collective.transmogrifier"/>
+    <include package="plone.app.transmogrifier"/>
+    <include package=".example" />
+	    
+    <utility component=".blueprint.Wikipedia"
+             name="collective.blueprint.wikipedia" />
+
+
+</configure>
