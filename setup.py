@@ -1,14 +1,11 @@
 from setuptools import setup, find_packages
-import os
 
-version = '0.1'
+version = '0.2'
 
 setup(name='collective.blueprint.wikipedia',
       version=version,
       description="",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description=open("README.rst").read(),
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
@@ -16,9 +13,9 @@ setup(name='collective.blueprint.wikipedia',
         ],
       keywords='zope plone transmogrifier blueprint wikipedia',
       author='Rok Garbas',
-      author_email='support@garbas.si',
-      url='http://',
-      license='GPL',
+      author_email='rok@garbas.si',
+      url='http://github.com/garbas/collective.blueprint.wikipedia',
+      license='BSD',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.blueprint'],
       include_package_data=True,
@@ -29,9 +26,5 @@ setup(name='collective.blueprint.wikipedia',
           'lxml',
           'collective.transmogrifier',
           'plone.app.transmogrifier',
-          'plone.i18n',
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
       )

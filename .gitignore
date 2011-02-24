@@ -3,14 +3,14 @@
 *.swp
 *.egg-info
 *.svn
-build
-dist
-docs
-src/*
-.installed.cfg
-bin
-develop-eggs
-lib
-parts
-var
 
+/.installed.cfg
+/simplewiki-latest-pages-articles.xml
+/bin/
+/build/
+/dist/
+/develop-eggs/
+/include/
+/lib/
+/parts/
+/var/
