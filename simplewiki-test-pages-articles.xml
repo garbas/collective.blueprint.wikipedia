@@ -58,6 +58,25 @@
       <text xml:space="preserve">
           Test for Page 2
           Link to [[Page 1]]
+          Link to [[. Page 4 (starts with dot)]]
+      </text>
+    </revision>
+  </page>
+  <page>
+    <title>. Page 4 (starts with dot)</title>
+    <id>3</id>
+    <revision>
+      <id>2634447</id>
+      <timestamp>2011-01-31T15:29:41Z</timestamp>
+      <contributor>
+        <username>EmausBot</username>
+        <id>111904</id>
+      </contributor>
+      <minor />
+      <comment>some comment</comment>
+      <text xml:space="preserve">
+          Test for Page 2
+          Link to [[Page 1]]
       </text>
     </revision>
   </page>
