@@ -28,6 +28,7 @@ class Wikipedia(object):
         if not self.options.get('xml', None):
             return
 
+        start_at_number = int(self.options.get('start-at-number', 1))
         stop_at_number = int(self.options.get('stop-at-number', 0))
         commit_at_every = int(self.options.get('commit-at-every', 0))
 
@@ -35,6 +36,7 @@ class Wikipedia(object):
         fxml = open(self.options['xml'])
         context = etree.iterparse(fxml, tag=XMLNS+"page")
         for action, element in context:
+
             title = [i for i in element.iter(tag=XMLNS+'title')][0].text
             text = unicode([i for i in element.iter(tag=XMLNS+'text')][0].text).encode('utf-8')
 
@@ -53,7 +55,12 @@ class Wikipedia(object):
                 else:
                     text = text.replace('[['+i+']]', '')
 
-            logger.warn(str(j)+': '+title)
+            j += 1
+            if j < start_at_number:
+                continue
+            logger.warn(str(j-1)+': '+title)
+            if title == 'Angiography':
+                import ipdb; ipdb.set_trace()
 
             yield dict(
                     _wiki_title = title,
@@ -62,11 +69,9 @@ class Wikipedia(object):
 
             if j == stop_at_number and stop_at_number != 0:
                 break
-            if commit_at_every != 0 and j % commit_at_every == 0:
+            if commit_at_every != 0 and (j-1) % commit_at_every == 0:
                 logger.warn( ('*'*10) + ' COMMITING ' + ('*'*10) )
                 import transaction; transaction.commit()
-
-            j += 1
 
             element.clear()
             parent = element.getparent()
